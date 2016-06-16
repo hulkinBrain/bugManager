@@ -63,15 +63,17 @@
             </action>
 
             <action name = "addMembersAction" class = "com.bugManager.dashboardAction" method = "addMembers">
-                <result name = "success" type = "chain">viewExistingMembersAction</result>
+                <result name = "success" type = "redirect">viewMembersAction.action?chosenViewMembers=%{membersToBeAddedInProjectId}</result>
                 <result name = "input">viewMembers.jsp</result>
                 <result name = "error">cantWrite.jsp</result>
                 <result name = "userExists">userExists.jsp</result>
+                <result name = "noPermission">noPermission.jsp</result>
             </action>
 
             <action name = "deleteUserAction" class = "com.bugManager.dashboardAction" method = "deleteMember">
-                <result name = "success" type = "chain">viewExistingMembersAction</result>
+                <result name = "success" type = "redirect">viewMembersAction.action?chosenViewMembers=%{chosenViewMembers}</result>
                 <result name = "error">deleteError.jsp</result>
+                <result name = "noPermission">noPermission.jsp</result>
             </action>
 
         </package>
