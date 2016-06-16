@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+        <constant name="struts.ui.theme" value="simple" />
+        <constant name="struts.devMode" value="true" />
+        <constant name="struts.url.includeParams" value="none" />
+
+        <package name="com.bugManager" extends="struts-default, json-default">
+
+            <!--Register Action -->
+            <action name="register" class = "com.bugManager.registerAction" method = "execute">
+
+                <result name="success">index.jsp</result>
+                <result name = "error">error.jsp</result>
+                <result name = "userExists">register.jsp</result>
+                <result name="input">register.jsp</result>
+            </action>
+
+            <!--login Action -->
+            <action name = "login" class = "com.bugManager.loginAction" method = "execute">
+                <result name = "success" type = "chain">viewProjectsAction</result>
+                <result name = "fail">index.jsp</result>
+                <result name="loginError">index.jsp</result>
+                <result name="error">index.jsp</result>
+            </action>
+
+            <!--logout Action -->
+            <action name = "logout" class = "com.bugManager.logoutAction" method = "execute">
+                <result name = "success">index.jsp</result>
+            </action>
+
+            <!-- TO BE ADDED -->
+
+            <!--action name="searchAction" class = "com.bugManager.dashboardAction">
+                <result type="json"/>
+            </action-->
+
+            <action name = "addProject" class = "com.bugManager.dashboardAction" method = "addProject">
+                <result name = "success">dashboard.jsp</result>
+                <result name="error">dashboard.jsp</result>
+            </action>
+
+            <action name = "addBug" class = "com.bugManager.dashboardAction" method = "addBug">
+                <result name = "success">dashboard.jsp</result>
+                <result name="error">dashboard.jsp</result>
+            </action>
+
+            <action name = "viewProjectsAction" class = "com.bugManager.dashboardAction" method = "viewProjects">
+                <result name = "success">dashboard.jsp</result>
+            </action>
+
+            <action name = "viewMembersAction" class = "com.bugManager.dashboardAction" method = "viewMembersList">
+                <result name = "success" type = "chain">viewExistingMembersAction</result>
+            </action>
+
+            <action name = "viewExistingMembersAction" class = "com.bugManager.dashboardAction" method = "viewExistingMembers">
+                <result name="success">viewMembers.jsp</result>
+            </action>
+
+            <action name = "addMembersAction" class = "com.bugManager.dashboardAction" method = "addMembers">
+                <result name = "success" type = "chain">viewExistingMembersAction</result>
+                <result name = "input">viewMembers.jsp</result>
+                <result name = "error">cantWrite.jsp</result>
+                <result name = "userExists">userExists.jsp</result>
+            </action>
+
+            <action name = "deleteUserAction" class = "com.bugManager.dashboardAction" method = "deleteMember">
+                <result name = "success" type = "chain">viewExistingMembersAction</result>
+                <result name = "error">deleteError.jsp</result>
+            </action>
+
+        </package>
+
+
+
+</struts>
