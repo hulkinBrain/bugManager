@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="asm-commons">
+    <archive path="G:/javaProjects/bugManager/lib/asm-commons.jar" />
+    <archive path="G:/javaProjects/bugManager/lib/asm-tree.jar" />
+    <archive path="G:/javaProjects/bugManager/lib/asm.jar" />
+    <archive path="G:/javaProjects/bugManager/lib/commons-fileupload.jar" />
+    <archive path="G:/javaProjects/bugManager/lib/commons-io.jar" />
+    <archive path="G:/javaProjects/bugManager/lib/commons-lang.jar" />
+    <archive path="G:/javaProjects/bugManager/lib/freemarker.jar" />
+    <archive path="G:/javaProjects/bugManager/lib/javassist.jar" />
+    <archive path="G:/javaProjects/bugManager/lib/json-simple-1.1.1.jar" />
+    <archive path="G:/javaProjects/bugManager/lib/ognl.jar" />
+    <archive path="G:/javaProjects/bugManager/lib/struts2-core.jar" />
+    <archive path="G:/javaProjects/bugManager/lib/struts2-json-plugin-2.3.28.1.jar" />
+    <archive path="G:/javaProjects/bugManager/lib/xwork-core.jar" />
+    <archive path="G:/javaProjects/bugManager/lib/jstl.jar" />
+  </library>
+  <library name="commons-lang-2.6">
+    <archive path="G:/javaProjects/bugManager/lib/commons-lang-2.6.jar" />
+  </library>
+  <library name="freemarker-2.3.8">
+    <archive path="G:/javaProjects/bugManager/lib/freemarker-2.3.8.jar" />
+  </library>
+  <library name="jackson-all-1.9.9">
+    <archive path="G:/javaProjects/bugManager/lib/jackson-all-1.9.9.jar" />
+  </library>
+  <library name="json-simple-1.1.1">
+    <archive path="G:/javaProjects/bugManager/lib/json-simple-1.1.1.jar" />
+  </library>
+  <library name="jsp-api-2.1">
+    <archive path="G:/javaProjects/bugManager/lib/jsp-api-2.1.jar" />
+  </library>
+  <library name="jstl">
+    <archive path="G:/javaProjects/bugManager/lib/jstl.jar" />
+  </library>
+  <library name="mysql-connector-java-5.1.38-bin" />
+  <library name="servlet-api">
+    <archive path="D:/xampp/tomcat/lib/servlet-api.jar" />
+  </library>
+  <library name="struts2-dojo-plugin-2.3.28.1">
+    <archive path="G:/javaProjects/bugManager/lib/struts2-dojo-plugin-2.3.28.1.jar" />
+  </library>
+  <library name="struts2-json-plugin-2.3.28.1">
+    <archive path="G:/javaProjects/bugManager/lib/struts2-json-plugin-2.3.28.1.jar" />
+  </library>
+</eclipse-userlibraries>
+

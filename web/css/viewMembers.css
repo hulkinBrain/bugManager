@@ -1,0 +1,170 @@
+body{
+    background-color: rgb(240, 240, 240) ;
+}
+
+.restOfThePage{
+    margin-left: 15%;
+    width: 85%;
+}
+.side-nav{
+    font-family: "robotoBold", sans-serif;
+    width: 15%;
+    min-width: 15%;
+}
+
+.logoContainer{
+    height: 20%;
+    margin-top: 10%;
+    margin-bottom: 30%;
+}
+
+.logoImage{
+    width: 108px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.side-nav{
+    box-shadow: 5px 0px 15px rgba(0,0,0,0.3);
+}
+.side-nav .logoContainer :hover {
+    background-color: rgba(0,0,0,0);
+}
+
+.navHeading{
+    margin-left: 3.5%;
+}
+
+#logoutButtonForm{
+    padding-top: 30px;
+}
+
+.brand-logo{
+    font-family: "robotoLight", sans-serif;
+}
+
+.waves-effect.waves-indigo .waves-ripple {
+    background-color: rgba(98,0,224, 0.5);
+}
+
+.normalListItem:hover{
+    background-color: rgba(0,0,0, 0.2);
+    transition: all .3s ease-out;
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+    transition-delay: initial;
+}
+
+.side-nav li.active {
+    background-color: rgba(0,0,0,0.2);
+}
+
+.welcomeUserText{
+    padding: 7%;
+    border-radius: 30px;
+}
+
+.viewForm{
+    margin-bottom: 0;
+}
+
+.searchBarContainer{
+    height: 10%;
+    padding: 10px;
+}
+
+#searchBar{
+    width: 40%;
+    margin-left: 60%;
+    transition-property: background-color;
+    transition-duration: 0.3s;
+}
+
+#membersListDropdown{
+    display: none;
+    min-width: 30%;
+    width: 40%;
+    margin-left: 60%;
+    max-height: 700px;
+}
+
+.addUsersButton{
+    margin: 2%;
+}
+
+#existingUsersContainer{
+    margin-top: 5%;
+    width: 50%;
+}
+#confirm{
+    width: 30%;
+    top: 30% !important;
+}
+.deleteUserFormContainer{
+    margin-right: 2%;
+    margin-top: -35px;
+}
+
+.collapsible-header{
+    font-family: "robotoBold", sans-serif;
+    color: #616161;
+    transition-property: all;
+    transition: .3s;
+}
+
+.collapsible-header.active{
+    font-family: "robotoBold", sans-serif;
+    background-color: #ffc107;
+    color: black;
+    transition-property: all;
+    transition: .3s;
+}
+
+.collapsible-body{
+    background-color: white;
+}
+
+[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+    position: relative;
+    left: 0;
+    opacity: 0;
+    display: block;
+}
+
+[type = "checkbox"]+label{
+    font-size: 2.7vmin;
+    overflow: hidden;
+    margin-left: 5%;
+}
+
+input::-webkit-input-placeholder {
+    color: rgb(30,30,30);
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+    color: #424242 !important;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+    color: #424242 !important;
+}
+
+input:-ms-input-placeholder {
+    color: #424242 !important;
+}
+
+@font-face {
+    font-family: robotoLight;
+    src: url('../fonts/Roboto-Light.ttf');
+}
+
+@font-face {
+    font-family: robotoThin;
+    src: url('../fonts/Roboto-Thin.ttf');
+}
+
+@font-face {
+    font-family: robotoBold;
+    src: url('../fonts/Roboto-Bold.ttf');
+}

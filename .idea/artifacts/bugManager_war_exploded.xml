@@ -1,0 +1,25 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="bugManager:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/bugManager_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="bugManager/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="bugManager" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="mysql-connector-java-5.1.38-bin" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/struts2-json-plugin-2.5.jar" />
+          <element id="file-copy" path="E:/downloads/struts2-json-plugin.jar" />
+          <element id="library" level="project" name="struts2-json-plugin-2.3.28.1" />
+          <element id="library" level="project" name="json-simple-1.1.1" />
+          <element id="library" level="project" name="asm-commons" />
+          <element id="library" level="project" name="commons-lang-2.6" />
+          <element id="library" level="project" name="jstl" />
+          <element id="library" level="project" name="struts2-dojo-plugin-2.3.28.1" />
+          <element id="library" level="project" name="freemarker-2.3.8" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

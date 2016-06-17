@@ -1,0 +1,75 @@
+body {
+    font-family: "robotoLight", sans-serif;
+}
+
+#bugIconContainer {
+    margin-top: 5%;
+}
+
+.loginDiv {
+    margin-top: 2%;
+    width: 30%;
+    padding: 1%;
+}
+
+.loginDiv > div {
+    min-width: 20%;
+}
+
+.loginForm {
+    margin-top: 2%;
+}
+
+#username, #password{
+    font-family: "robotoBold", sans-serif;
+}
+
+#bugIconContainer {
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10%;
+    padding: 1.5%;
+}
+
+#bugIcon {
+    width: 100%;
+    padding: 2.5%;
+}
+
+.submitButton, .forgotPasswordButton {
+    margin-right: 0.75em;
+}
+
+.formButtons {
+    margin-bottom: 0;
+}
+
+.registerDiv {
+    position: fixed;
+    padding: 1%;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+}
+
+.registerDiv > span{
+    font-size: 2.5vmin;
+}
+#registerButton{
+    margin-left: 1%;
+}
+@font-face {
+    font-family: robotoLight;
+    src: url('../fonts/Roboto-Light.ttf');
+}
+
+@font-face {
+    font-family: robotoThin;
+    src: url('../fonts/Roboto-Thin.ttf');
+}
+
+@font-face {
+    font-family: robotoBold;
+    src: url('../fonts/Roboto-Bold.ttf');
+}

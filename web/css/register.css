@@ -1,0 +1,52 @@
+body{
+    font-family: "robotoLight", sans-serif;
+}
+
+.background {
+    height:50%;
+    top:0;
+    background: url('../images/registerWall.png') center;
+}
+
+body > div > h1{
+    padding-top: 1%;
+    margin-top: 0;
+}
+.formContainer{
+    width: 40%;
+    margin-top: -7%;
+    padding: 2%;
+    padding-bottom: 0;
+}
+
+.input-field input[type=text] {
+    font-family: "robotoBold", sans-serif;
+}
+
+.input-field input[type=email] {
+    font-family: "robotoBold", sans-serif;
+}
+
+.submitButton, .cancelButton{
+    margin-right: 0.75em;
+}
+
+.fieldError{
+    font-family: "robotoBold", sans-serif;
+    color: red;
+}
+
+@font-face {
+    font-family: robotoLight;
+    src: url('../fonts/Roboto-Light.ttf');
+}
+
+@font-face {
+    font-family: robotoThin;
+    src: url('../fonts/Roboto-Thin.ttf');
+}
+
+@font-face {
+    font-family: robotoBold;
+    src: url('../fonts/Roboto-Bold.ttf');
+}
