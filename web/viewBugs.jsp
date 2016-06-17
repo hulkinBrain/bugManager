@@ -80,6 +80,59 @@
                 <a href="#" class="brand-logo left navHeading black-text">Bugs</a>
             </div>
         </nav>
+
+        <div id = "existingBugsContainer" class = "container">
+            <ul class="collapsible popout" data-collapsible="accordion">
+
+                <s:iterator value = "existingBugsList" status = "status" var = "bugsDetails">
+                    <li>
+                        <div class="collapsible-header">
+                            <i class="material-icons">bug report</i>
+                            <s:property value="bugTitle"/> <span class = "right"><s:property value=""/></span>
+                        </div>
+                        <div class = "right bugListOptions">
+
+                        </div>
+                        <div class="collapsible-body"><p>Username: <s:property value = "membersUsername"/></p></div>
+
+                    </li>
+                </s:iterator>
+
+            </ul>
+        </div>
+    </div>
+
+    <!--floating button start-->
+    <div class="fixed-action-btn" style="bottom: 40px; right: 40px;">
+        <a class="btn-floating btn-large waves-effect waves-light red tooltipped modal-trigger" href = "#addBugModal" data-position="left" data-delay="50" data-tooltip="Add Bug"><i class="material-icons">add</i></a>
+    </div>
+    <!--floating button end-->
+
+    <!-- addBugModal -->
+    <div id="addBugModal" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h4 class = "modalHeader" style = "margin-left: 0.75rem; font-family: 'robotoBold', sans-serif">Bug Details</h4>
+            <div class = "row formContainer">
+                <s:form action = "addBugAction" id = "addBugForm">
+                    <div class = "row">
+                        <div class="input-field col s6">
+                            <s:textfield id="bugTitle" name = "bugTitle"/>
+                            <label for="bugTitle">Enter Bug Title</label>
+                        </div>
+                    </div>
+                    <s:hidden name = "membersToBeAddedInProjectId" value = "%{chosenViewMembers}"/>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <s:textarea id="bugDesc" class="materialize-textarea" name = "bugDesc"/>
+                            <label for="bugDesc">Enter Bug Details</label>
+                        </div>
+                    </div>
+                </s:form>
+            </div>
+        </div>
+        <div class="modal-footer orange">
+            <a class="modal-action modal-close waves-effect waves-dark btn-flat addFooterButton" onclick="document.getElementById('addBugForm').submit();">Add</a>
+        </div>
     </div>
 
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>

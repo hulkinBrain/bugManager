@@ -134,31 +134,6 @@
 
             <!-- all the modals -->
 
-            <!-- addBugModal -->
-            <div id="addBugModal" class="modal cyan darken-3 modal-fixed-footer">
-                <div class="modal-content">
-                    <h4 class = "white-text modalHeader">Bug Details</h4>
-                    <div class = "row formContainer">
-                        <s:form action = "addBug">
-                            <div class = "row">
-                                <div class="input-field col s6 white-text">
-                                    <s:textfield id="bugTitle" type="text"/>
-                                    <label for="bugTitle">Enter Bug Title</label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-field col s12 white-text">
-                                    <s:textarea id="bugDesc" class="materialize-textarea"/>
-                                    <label for="bugDesc" class = "white-text">Enter Bug Details</label>
-                                </div>
-                            </div>
-                        </s:form>
-                    </div>
-                </div>
-                <div class="modal-footer cyan darken-4">
-                    <a class="modal-action modal-close waves-effect waves-green btn-flat addFooterButton white-text" type = "submit">Add</a>
-                </div>
-            </div>
 
             <!--add project modal -->
 

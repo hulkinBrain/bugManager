@@ -4,7 +4,6 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import java.sql.*;
 import java.util.ArrayList;
 import java.lang.*;
 import java.util.List;
@@ -24,7 +23,7 @@ public class dashboardAction implements ServletRequestAware{
 
     private String term;
     private String bugTitle;
-    private String bugDetails;
+    private String bugDesc;
     private String projectTitle;
     private String projectDetails;
     private String chosenViewMembers;   //to store the projectId of the project whose list option 'view members' has been chosen
@@ -76,9 +75,9 @@ public class dashboardAction implements ServletRequestAware{
     }*/
 
     public String addBug(){
-        addBugDao addBug = new addBugDao();
+        addBugDao abd = new addBugDao();
         int status;
-        status = addBug.add(this);
+        status = abd.add(this);
         if(status == 1)
             return "success";
         else
@@ -175,10 +174,9 @@ public class dashboardAction implements ServletRequestAware{
         return "success";
     }
 
-    public String viewBugs(){
+    public String viewBugsList(){
         return "success";
     }
-
 
     String fetchUserId(){
         for(Cookie c : servletRequest.getCookies()) {
@@ -273,12 +271,12 @@ public class dashboardAction implements ServletRequestAware{
         this.bugTitle = bugTitle;
     }
 
-    public String getBugDetails() {
-        return bugDetails;
+    public String getBugDesc() {
+        return bugDesc;
     }
 
-    public void setBugDetails(String bugDetails) {
-        this.bugDetails = bugDetails;
+    public void setBugDesc(String bugDesc) {
+        this.bugDesc = bugDesc;
     }
 
     public String getProjectTitle() {

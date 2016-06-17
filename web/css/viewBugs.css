@@ -61,6 +61,10 @@ body{
     border-radius: 30px;
 }
 
+.formContainer{
+    margin-top: 5%;
+}
+
 @font-face {
     font-family: robotoLight;
     src: url('../fonts/Roboto-Light.ttf');

@@ -53,7 +53,8 @@
             </s:form>
         </li>
         <li class = "normalListItem" id = "projectMembers">
-            <s:form action = "viewMembersAction" class = "viewForm" id = "viewMembersForm">
+            <s:form action = "viewExistingMembersTabAction" class = "viewForm" id = "viewMembersForm">
+                <s:hidden name = "membersToBeAddedInProjectId" value = "%{chosenViewMembers}"/>
                 <a class = "white-text waves-effect waves-light" onclick="document.getElementById('viewMembersForm').submit()">Project Members</a>
             </s:form>
         </li>
@@ -117,6 +118,7 @@
                         <div class = "right deleteUserFormContainer">
                             <s:form action = "deleteUserAction" id = "deleteMember">
                                 <s:hidden name = "memberIdToBeDeleted" value = "%{membersId}"/>
+                                <s:hidden name = "membersToBeAddedInProjectId" value = "%{chosenViewMembers}"/>
                                 <a class = "modal-trigger" style = "color: inherit;" href = "#confirm"><i class = "material-icons right">close</i></a>
                                 <!-- userDelete confirmation start-->
                                 <div id="confirm" class="modal">

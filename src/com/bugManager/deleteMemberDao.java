@@ -13,15 +13,17 @@ public class deleteMemberDao {
             PreparedStatement ps;
             ResultSet rs;
 
-            sql = "SELECT projectLeaderId FROM projectMembers WHERE ? = projectLeaderId AND projectid = ?";
+            sql = "SELECT projectLeaderId FROM projectMembers WHERE projectLeaderId = ? AND projectId = ?";
             ps = c.prepareStatement(sql);
             ps.setString(1, da.fetchUserId());
+            System.out.println("membersToBeAddedinProjectId = " + da.getMembersToBeAddedInProjectId());
             ps.setString(2, da.getMembersToBeAddedInProjectId());
             rs = ps.executeQuery();
             if(rs.next()) {
-                sql = "DELETE FROM projectMembers WHERE projectMemberId = ?";
+                sql = "DELETE FROM projectMembers WHERE projectMemberId = ? AND projectId = ?";
                 ps = c.prepareStatement(sql);
                 ps.setString(1, da.getMemberIdToBeDeleted());
+                ps.setString(2, da.getMembersToBeAddedInProjectId());
                 status = ps.executeUpdate();
             }
             else

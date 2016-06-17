@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class addBugDao {
 
@@ -11,10 +14,25 @@ public class addBugDao {
     public int add(dashboardAction da){
 
         try{
-            Class.forName("com.jdbc.mysql.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/bugmanager", "username", "qwer");
 
-            String sql = "INSERT INTO users bugs ()";
+            String sql;
+
+            sql= "INSERT INTO bugs (bugTitle, bugDesc, bugGeneratedById, bugGeneratedOn, relatedProjectId, updateLock) "+
+                    "VALUES (?, ?, ?, ?, ?, ?)";
+            PreparedStatement ps = c.prepareStatement(sql);
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Date date = new Date();
+
+            ps.setString(1, da.getBugTitle());
+            ps.setString(2, da.getBugDesc());
+            ps.setString(3, da.fetchUserId());
+            ps.setString(4, dateFormat.format(date));
+            ps.setString(5, da.getMembersToBeAddedInProjectId());
+            ps.setString(6, "0");
+
+            status = ps.executeUpdate();
 
         }
         catch(SQLException e){

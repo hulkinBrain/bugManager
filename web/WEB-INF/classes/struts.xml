@@ -45,11 +45,6 @@
                 <result name="error">dashboard.jsp</result>
             </action>
 
-            <action name = "addBug" class = "com.bugManager.dashboardAction" method = "addBug">
-                <result name = "success">dashboard.jsp</result>
-                <result name="error">dashboard.jsp</result>
-            </action>
-
             <action name = "viewProjectsAction" class = "com.bugManager.dashboardAction" method = "viewProjects">
                 <result name = "success">dashboard.jsp</result>
             </action>
@@ -62,7 +57,11 @@
                 <result name="success">viewMembers.jsp</result>
             </action>
 
-            <action name = "viewBugsAction" class = "com.bugManager.dashboardAction" method = "viewBugs">
+            <action name = "viewExistingMembersTabAction" class = "com.bugManager.dashboardAction" method = "viewExistingMembers">
+                <result name="success" type = "redirect">viewMembersAction.action?chosenViewMembers=%{membersToBeAddedInProjectId}</result>
+            </action>
+
+            <action name = "viewBugsAction" class = "com.bugManager.dashboardAction" method = "viewBugsList">
                 <result name = "success">viewBugs.jsp</result>
             </action>
 
@@ -75,9 +74,14 @@
             </action>
 
             <action name = "deleteUserAction" class = "com.bugManager.dashboardAction" method = "deleteMember">
-                <result name = "success" type = "redirect">viewMembersAction.action?chosenViewMembers=%{chosenViewMembers}</result>
+                <result name = "success" type = "redirect">viewMembersAction.action?chosenViewMembers=%{membersToBeAddedInProjectId}</result>
                 <result name = "error">deleteError.jsp</result>
                 <result name = "noPermission">noPermission.jsp</result>
+            </action>
+
+            <action name = "addBugAction" class = "com.bugManager.dashboardAction" method = "addBug">
+                <result name = "success" type = "redirect">viewBugsAction.action?chosenViewMembers=%{membersToBeAddedInProjectId}</result>
+                <result name = "error">cantWrite.jsp</result>
             </action>
 
         </package>
