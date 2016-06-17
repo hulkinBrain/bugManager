@@ -62,6 +62,10 @@
                 <result name="success">viewMembers.jsp</result>
             </action>
 
+            <action name = "viewBugsAction" class = "com.bugManager.dashboardAction" method = "viewBugs">
+                <result name = "success">viewBugs.jsp</result>
+            </action>
+
             <action name = "addMembersAction" class = "com.bugManager.dashboardAction" method = "addMembers">
                 <result name = "success" type = "redirect">viewMembersAction.action?chosenViewMembers=%{membersToBeAddedInProjectId}</result>
                 <result name = "input">viewMembers.jsp</result>

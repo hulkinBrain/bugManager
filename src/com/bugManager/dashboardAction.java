@@ -175,6 +175,10 @@ public class dashboardAction implements ServletRequestAware{
         return "success";
     }
 
+    public String viewBugs(){
+        return "success";
+    }
+
 
     String fetchUserId(){
         for(Cookie c : servletRequest.getCookies()) {

@@ -1,0 +1,77 @@
+body{
+    background-color: rgb(240, 240, 240) ;
+}
+
+.restOfThePage{
+    margin-left: 15%;
+    width: 85%;
+}
+.side-nav{
+    font-family: "robotoBold", sans-serif;
+    width: 15%;
+    min-width: 15%;
+}
+
+.logoContainer{
+    height: 20%;
+    margin-top: 10%;
+    margin-bottom: 30%;
+}
+
+.logoImage{
+    width: 108px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.side-nav{
+    box-shadow: 5px 0px 15px rgba(0,0,0,0.3);
+}
+.side-nav .logoContainer :hover {
+    background-color: rgba(0,0,0,0);
+}
+
+.navHeading{
+    margin-left: 3.5%;
+}
+
+#logoutButtonForm{
+    padding-top: 30px;
+}
+
+.brand-logo {
+    font-family: "robotoLight", sans-serif;
+}
+
+.normalListItem:hover{
+    background-color: rgba(0,0,0, 0.2);
+    transition: all .3s ease-out;
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+    transition-delay: initial;
+}
+
+.side-nav li.active {
+    background-color: rgba(0,0,0,0.2);
+}
+
+.welcomeUserText{
+    padding: 7%;
+    border-radius: 30px;
+}
+
+@font-face {
+    font-family: robotoLight;
+    src: url('../fonts/Roboto-Light.ttf');
+}
+
+@font-face {
+    font-family: robotoThin;
+    src: url('../fonts/Roboto-Thin.ttf');
+}
+
+@font-face {
+    font-family: robotoBold;
+    src: url('../fonts/Roboto-Bold.ttf');
+}

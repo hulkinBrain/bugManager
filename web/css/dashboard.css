@@ -43,10 +43,6 @@ body{
     font-family: "robotoLight", sans-serif;
 }
 
-.waves-effect.waves-indigo .waves-ripple {
-    background-color: rgba(98,0,224, 0.5);
-}
-
 .normalListItem:hover{
     background-color: rgba(0,0,0, 0.2);
     transition: all .3s ease-out;

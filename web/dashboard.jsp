@@ -115,7 +115,10 @@
                     </div>
 
                         <s:div id='divId%{#status.count}' class='dynamicViewProjectViewOptions dropdown-content'>
-                            <li><a onclick="document.getElementById('viewBugsForm').submit()" class = "waves-effect waves-dark">View Bugs</a></li>
+                            <s:url id = "urlValue1" action = "viewBugsAction">
+                                <s:param name = "chosenViewMembers"><s:property value = "projectId"/></s:param>
+                            </s:url>
+                            <li><s:a href = "%{urlValue1}" class = "waves-effect waves-dark">View Bugs</s:a></li>
 
                             <s:url id = "urlValue" action = "viewMembersAction">
                                 <s:param name = "chosenViewMembers"><s:property value = "projectId"/></s:param>
