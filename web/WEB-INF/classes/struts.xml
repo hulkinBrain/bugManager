@@ -41,7 +41,7 @@
             </action-->
 
             <action name = "addProject" class = "com.bugManager.dashboardAction" method = "addProject">
-                <result name = "success">dashboard.jsp</result>
+                <result name = "success" type = "chain">viewProjectsAction</result>
                 <result name="error">dashboard.jsp</result>
             </action>
 
