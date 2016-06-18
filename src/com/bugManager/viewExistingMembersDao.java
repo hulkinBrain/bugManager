@@ -7,14 +7,6 @@ import java.util.List;
 public class viewExistingMembersDao {
     private ArrayList<members> existingMembersList = new ArrayList<>();
 
-    public ArrayList<members> getExistingMembersList() {
-        return existingMembersList;
-    }
-
-    public void setExistingMembersList(ArrayList<members> existingMembersList) {
-        this.existingMembersList = existingMembersList;
-    }
-
     public List<members> getMembers(dashboardAction da){
         try {
 
@@ -43,5 +35,13 @@ public class viewExistingMembersDao {
         }
         System.out.println("SIZE OF EXISTING MEMBERS LIST = " + existingMembersList.size());
         return existingMembersList;
+
+    }
+    public ArrayList<members> getExistingMembersList() {
+        return existingMembersList;
+    }
+
+    public void setExistingMembersList(ArrayList<members> existingMembersList) {
+        this.existingMembersList = existingMembersList;
     }
 }

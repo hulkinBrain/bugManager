@@ -87,15 +87,31 @@
                 <s:iterator value = "existingBugsList" status = "status" var = "bugsDetails">
                     <li>
                         <div class="collapsible-header">
-                            <i class="material-icons">bug report</i>
-                            <s:property value="bugTitle"/> <span class = "right"><s:property value=""/></span>
+                            <i class="material-icons left">bug_report</i>
+                            <span class = "bugStatus">[<s:property value = "bugSolvedOn"/>]</span>
+                            <s:property value="bugTitle"/>
+                            <span class = "right" style = 'margin-right: 5%; font-family: "robotoBold", sans-serif'>
+                                Generated on: <s:property value="bugGeneratedOn"/>
+                            </span>
                         </div>
                         <div class = "right bugListOptions">
-
+                            <s:a class = "dropdown-button" data-beloworigin="true" data-activates = "bugList%{#status.count}"><i class = "material-icons right">list</i></s:a>
                         </div>
-                        <div class="collapsible-body"><p>Username: <s:property value = "membersUsername"/></p></div>
-
+                        <div class="collapsible-body white">
+                            <p style = 'font-family: "robotoBold", sans-serif'>Solved By: <s:property value="bugSolvedByName"/> </p>
+                            <p><span style = 'font-family: "robotoBold", sans-serif'>Bug Description:</span><br><s:property value = "bugDesc"/></p>
+                        </div>
                     </li>
+                    <s:div id='bugList%{#status.count}' class='dropdown-content bugListItems' data-constrainwidth = "false">
+
+                        <s:form action = "editBug" id = "editBugForm">
+                            <s:hidden name = "chosenBugId" value="%{bugId}"/>
+                            <li><a onclick = "document.getElementById('editBugForm').submit()">Edit</a></li>
+                        </s:form>
+
+                        <li><a href="#!">Mark Solved/Unsolved</a></li>
+                        <li><a href="#!">Delete</a></li>
+                    </s:div>
                 </s:iterator>
 
             </ul>
@@ -108,7 +124,7 @@
     </div>
     <!--floating button end-->
 
-    <!-- addBugModal -->
+    <!-- addBugModal start-->
     <div id="addBugModal" class="modal modal-fixed-footer">
         <div class="modal-content">
             <h4 class = "modalHeader" style = "margin-left: 0.75rem; font-family: 'robotoBold', sans-serif">Bug Details</h4>
@@ -131,9 +147,11 @@
             </div>
         </div>
         <div class="modal-footer orange">
-            <a class="modal-action modal-close waves-effect waves-dark btn-flat addFooterButton" onclick="document.getElementById('addBugForm').submit();">Add</a>
+            <a class="modal-action modal-close waves-effect waves-dark btn-flat addFooterButton" style = 'font-family: "robotoBold", sans-serif'
+               onclick="document.getElementById('addBugForm').submit();">Add</a>
         </div>
     </div>
+    <!-- addBugModal end-->
 
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
@@ -143,6 +161,10 @@
             $(".button-collapse").sideNav();
             // Initialize collapsible (uncomment the line below if you use the dropdown variation)
             $('.collapsible').collapsible();
+            $('.dropdown-button').dropdown({
+                constrain_width: false
+            });
+
         });
     </script>
     </body>

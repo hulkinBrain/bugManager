@@ -1,10 +1,28 @@
 package com.bugManager;
 
 public class bugs {
-    private String bugTitle, bugDesc, bugGeneratedById, bugGeneratedOn, bugSolvedById, bugSolvedOn, relatedProjectId, updateLock;
+    private String bugId;
+    private String bugTitle;
+    private String bugDesc;
+    private String bugGeneratedById;
+    private String bugGeneratedOn;
+    private String bugSolvedById;
+    private String bugSolvedByName;
+
+    private String bugSolvedOn;
+    private String relatedProjectId;
+    private String updateLock;
 
     public String getBugTitle() {
         return bugTitle;
+    }
+
+    public String getBugId() {
+        return bugId;
+    }
+
+    public void setBugId(String bugId) {
+        this.bugId = bugId;
     }
 
     public void setBugTitle(String bugTitle) {
@@ -41,6 +59,14 @@ public class bugs {
 
     public void setBugSolvedById(String bugSolvedById) {
         this.bugSolvedById = bugSolvedById;
+    }
+
+    public String getBugSolvedByName() {
+        return bugSolvedByName;
+    }
+
+    public void setBugSolvedByName(String bugSolvedByName) {
+        this.bugSolvedByName = bugSolvedByName;
     }
 
     public String getBugSolvedOn() {

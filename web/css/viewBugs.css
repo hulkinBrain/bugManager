@@ -12,6 +12,10 @@ body{
     min-width: 15%;
 }
 
+.viewForm{
+    margin-bottom: 0;
+}
+
 .logoContainer{
     height: 20%;
     margin-top: 10%;
@@ -63,6 +67,46 @@ body{
 
 .formContainer{
     margin-top: 5%;
+}
+
+#existingBugsContainer{
+    margin-top: 5%;
+    width: 70%;
+}
+
+.bugStatus{
+    font-family: "robotoBold", sans-serif;
+}
+
+.bugListOptions{
+    margin-right: 2%;
+    margin-top: -37px;
+    overflow: visible !important;
+}
+
+.bugListOptions a{
+    color: inherit;
+}
+
+#editBugForm{
+    margin: 0;
+}
+
+.collapsible-header{
+    color: #616161;
+    transition-property: all;
+    transition: .3s;
+}
+
+.collapsible-header.active{
+    background-color: #795548;
+    color: white;
+    transition-property: all;
+    transition: .3s;
+}
+
+.bugListItems{
+    font-family: "robotoBold", sans-serif;
 }
 
 @font-face {

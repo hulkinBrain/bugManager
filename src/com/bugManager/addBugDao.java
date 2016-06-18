@@ -24,11 +24,11 @@ public class addBugDao {
             PreparedStatement ps = c.prepareStatement(sql);
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             Date date = new Date();
-
+            String currentDate = dateFormat.format(date);
             ps.setString(1, da.getBugTitle());
             ps.setString(2, da.getBugDesc());
             ps.setString(3, da.fetchUserId());
-            ps.setString(4, dateFormat.format(date));
+            ps.setString(4, currentDate);
             ps.setString(5, da.getMembersToBeAddedInProjectId());
             ps.setString(6, "0");
 

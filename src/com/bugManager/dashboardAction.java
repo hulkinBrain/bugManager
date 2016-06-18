@@ -20,6 +20,7 @@ public class dashboardAction implements ServletRequestAware{
     private List<projects> projectList;
     private List<members> membersList;
     private List<members> existingMembersList;
+    private List<bugs> existingBugsList;
 
     private String term;
     private String bugTitle;
@@ -33,6 +34,7 @@ public class dashboardAction implements ServletRequestAware{
 
 
     private String membersToBeAddedInProjectId; //to store the projectId of the project whose list option 'view members' has been chosen (for viewMembers.jsp)
+    private String chosenBugId; //to store the id of the bug which has been chosen for editing
 
     private String userId;
     private String membersToBeAdded;
@@ -168,16 +170,40 @@ public class dashboardAction implements ServletRequestAware{
         else
             System.out.println("existingMembersList is full" + existingMembersList.size());
 
-        for(int i = 0; i < existingMembersList.size(); i++){
-            System.out.println("existingMembersList: " +existingMembersList.get(i).getMembersFirstName());
+        return "success";
+    }
+
+    public String viewExistingBugsList(){
+        viewExistingBugsListDao vebld = new viewExistingBugsListDao();
+        existingBugsList = vebld.show(this);
+        if(existingBugsList.size() == 0){
+            System.out.println("existingBugsList is null");
+        }
+        else{
+
+            System.out.println("existingBugsList is full");
         }
         return "success";
     }
 
-    public String viewBugsList(){
-        return "success";
+    public String isEditable(){
+        int status;
+        isEditableDao ied = new isEditableDao();
+        status = ied.canEdit(this);
+        if(status == 1)
+            return "success";
+        else
+            return "error";
     }
-
+    public String editBug(){
+        int status = 1;
+        editBugDao ebd = new editBugDao();
+        //status = ebd.edit();
+        if(status == 1)
+            return "success";
+        else
+            return "error";
+    }
     String fetchUserId(){
         for(Cookie c : servletRequest.getCookies()) {
             if (c.getName().equals("userIdCookie"))
@@ -189,6 +215,22 @@ public class dashboardAction implements ServletRequestAware{
 
 
     //getters and setters
+
+    public String getChosenBugId() {
+        return chosenBugId;
+    }
+
+    public void setChosenBugId(String chosenBugId) {
+        this.chosenBugId = chosenBugId;
+    }
+
+    public List<bugs> getExistingBugsList() {
+        return existingBugsList;
+    }
+
+    public void setExistingBugsList(List<bugs> existingBugsList) {
+        this.existingBugsList = existingBugsList;
+    }
 
     public String getLocalProjectId() {
         return localProjectId;
