@@ -183,6 +183,7 @@ public class dashboardAction implements ServletRequestAware{
 
     public String viewExistingBugsList(){
         viewExistingBugsListDao vebld = new viewExistingBugsListDao();
+        System.out.println("chosenViewMembers in viewExistingBugs: " + chosenViewMembers);
         existingBugsList = vebld.show(this);
         if(existingBugsList.size() == 0){
             System.out.println("existingBugsList is null");

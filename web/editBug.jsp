@@ -83,7 +83,8 @@
 
         <div class = "editFormContainer white">
             <s:form id = "editBugForm" action = "editBugAction">
-                <s:hidden name = "chosenViewMembers" value = "%{chosenBugId}"/>
+                <s:property value="chosenViewMembers"/>
+                <s:hidden name = "chosenViewMembers" value = "%{chosenViewMembers}"/>
                 <s:hidden name = "chosenBugId" value = "%{chosenBugId}"/>
                 <div class = "row">
                     <div class="input-field col s6">
@@ -95,8 +96,6 @@
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <s:property value="bugDesc"/>
-                        <s:property value="bugTitle"/>
                         <s:textarea id="bugDesc" class="materialize-textarea bugDesc" name = "bugDesc" value = "%{editBugDesc}"/>
                         <label for="bugDesc">Enter Bug Details</label>
                         <span class = "errorMsg" id = "bugDescError"></span>

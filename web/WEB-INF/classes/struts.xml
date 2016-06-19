@@ -98,7 +98,7 @@
             </action>
 
             <action name = "editBugAction" class = "com.bugManager.dashboardAction" method = "editBug">
-                <result name = "success" type = "redirectAction">viewBugsAction</result>
+                <result name = "success" type = "redirect">viewBugsAction.action?chosenViewMembers=%{chosenViewMembers}</result>
                 <result name = "error">cantWrite.jsp</result>
             </action>
 
