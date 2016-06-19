@@ -120,6 +120,8 @@
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script>
         $(document).ready(function(){
+            Materialize.toast("Please don't press BACK, press CANCEL and then go back to avoid issues <br>as a LOCK has been set up" +
+                    "to prevent other users from editing this bug concurrently!", 10000);
             $('.modal-trigger').leanModal();
             $(".button-collapse").sideNav();
             // Initialize collapsible (uncomment the line below if you use the dropdown variation)
