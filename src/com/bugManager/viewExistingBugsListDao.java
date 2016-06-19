@@ -27,7 +27,7 @@ public class viewExistingBugsListDao {
                 bugs bug = new bugs();
                 bug.setBugId(rs.getString("bugId"));
                 bug.setBugTitle(rs.getString("bugTitle"));
-                bug.setBugDesc(rs.getString("bugDesc").replaceAll("\n","<br/>"));
+                bug.setBugDesc(rs.getString("bugDesc"));
                 bug.setBugGeneratedById(rs.getString("bugGeneratedById"));
                 bug.setBugGeneratedOn(rs.getString("bugGeneratedOn"));
 

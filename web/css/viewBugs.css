@@ -105,6 +105,19 @@ body{
     transition: .3s;
 }
 
+.collapsible-body p{
+    padding: 2rem 2rem 0 2rem;
+    font-family: "robotoBold", sans-serif;
+}
+.collapsible-body pre{
+    padding: 2em;
+    font-family: Myriad Pro, sans-serif;
+    font-weight: 300;
+    background-color: #efebe9;
+    margin: 0 2rem 2% 2rem;
+
+}
+
 .bugListItems{
     font-family: "robotoBold", sans-serif;
 }
