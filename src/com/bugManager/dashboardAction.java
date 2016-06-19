@@ -194,12 +194,9 @@ public class dashboardAction implements ServletRequestAware{
         return "success";
     }
 
-    public String doSomething(){
-        return "success";
-    }
-
     public String isEditable(){
         int status;
+        viewExistingBugsList();
         System.out.println("chosenViewmembers: " + chosenViewMembers);
         isEditableDao ied = new isEditableDao();
         status = ied.canEdit(this);
@@ -215,9 +212,9 @@ public class dashboardAction implements ServletRequestAware{
 
     }
     public String editBug(){
+        this.viewExistingBugsList();
         int status;
         System.out.println("chosenViewmembers: " + chosenViewMembers);
-        viewExistingBugsList();
         editBugDao ebd = new editBugDao();
         status = ebd.edit(this);
         if(status == 1)

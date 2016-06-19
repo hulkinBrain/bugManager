@@ -82,9 +82,9 @@
         </nav>
 
         <div class = "editFormContainer white">
-            <s:form id = "editBugForm">
-                <s:hidden name = "chosenViewMembers" value = "%{relatedProjectId}"/>
-                <s:hidden name = "chosenBugId" value = "%{chosenbugId}"/>
+            <s:form id = "editBugForm" action = "editBugAction">
+                <s:hidden name = "chosenViewMembers" value = "%{chosenBugId}"/>
+                <s:hidden name = "chosenBugId" value = "%{chosenBugId}"/>
                 <div class = "row">
                     <div class="input-field col s6">
                         <s:textfield id="bugTitle" name = "bugTitle" value = "%{editBugTitle}" class = "bugTitle"/>
@@ -97,12 +97,12 @@
                     <div class="input-field col s12">
                         <s:property value="bugDesc"/>
                         <s:property value="bugTitle"/>
-                        <s:textarea id="bugDesc" class="materialize-textarea bugDesc" name = "editBugDesc" value = "%{editBugDesc}"/>
+                        <s:textarea id="bugDesc" class="materialize-textarea bugDesc" name = "bugDesc" value = "%{editBugDesc}"/>
                         <label for="bugDesc">Enter Bug Details</label>
                         <span class = "errorMsg" id = "bugDescError"></span>
                     </div>
                 </div>
-                <s:hidden name="chosenViewMembers" value = "%{chosenViewMembers}"/>
+
                 <div class = "row formButtons">
                     <a class = 'btn waves-effect waves-light right submitButton' onclick = 'document.getElementById("editBugForm").submit();'>Update</a>
                     <a class = 'btn waves-effect waves-dark right cancelButton purple accent-1'>Cancel</a>

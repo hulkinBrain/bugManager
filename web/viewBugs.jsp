@@ -103,12 +103,11 @@
                         </div>
                     </li>
                     <s:div id='bugList%{#status.count}' class='dropdown-content bugListItems' data-constrainwidth = "false">
-
-                        <s:form id = "editBugForm" action = "checkIsEditable">
-                            <s:hidden name = "chosenViewMembers" value = "%{chosenViewMembers}"/>
-                            <s:hidden name = "chosenBugId" value="%{bugId}"/>
-                            <li><a onclick = 'document.getElementById("editBugForm").submit()'>Edit</a></li>
-                        </s:form>
+                        <s:url id = "urlValue" action = "checkIsEditable">
+                            <s:param name = "chosenViewMembers"><s:property value = "%{chosenViewMembers}"/></s:param>
+                            <s:param name = "chosenBugId"><s:property value = "%{bugId}"/></s:param>
+                        </s:url>
+                        <li><s:a href = '%{urlValue}'>Edit</s:a></li>
 
                         <li><a href="#!">Mark Solved/Unsolved</a></li>
                         <li><a href="#!">Delete</a></li>

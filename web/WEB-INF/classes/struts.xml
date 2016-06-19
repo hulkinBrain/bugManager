@@ -61,10 +61,6 @@
                 <result name="success" type = "redirect">viewMembersAction.action?chosenViewMembers=%{membersToBeAddedInProjectId}</result>
             </action>
 
-            <action name = "viewBugsAction" class = "com.bugManager.dashboardAction" method = "viewExistingBugsList">
-                <result name = "success">viewBugs.jsp</result>
-            </action>
-
             <action name = "addMembersAction" class = "com.bugManager.dashboardAction" method = "addMembers">
                 <result name = "success" type = "redirect">viewMembersAction.action?chosenViewMembers=%{membersToBeAddedInProjectId}</result>
                 <result name = "input">viewMembers.jsp</result>
@@ -79,6 +75,10 @@
                 <result name = "noPermission">noPermission.jsp</result>
             </action>
 
+            <action name = "viewBugsAction" class = "com.bugManager.dashboardAction" method = "viewExistingBugsList">
+                <result name = "success">viewBugs.jsp</result>
+            </action>
+
             <action name = "addBugAction" class = "com.bugManager.dashboardAction" method = "addBug">
                 <result name = "success" type = "redirect">
                     <param name="location">viewBugsAction.action</param>
@@ -88,11 +88,17 @@
             </action>
 
             <action name = "checkIsEditable" class = "com.bugManager.dashboardAction" method = "isEditable">
-                <result name = "success" type = "redirect">
-                    <param name = "location">editBug.jsp</param>
-                    <param name = "chosenBugId">%{chosenBugId}</param>
-                    <param name="chosenViewMembers">%{chosenViewMembers}</param>
-                </result>
+                <result name = "success" type = "chain">editBugShow</result>
+                <result name = "error">cantWrite.jsp</result>
+            </action>
+
+            <action name = "editBugShow" class = "com.bugManager.dashboardAction" method = "isEditable">
+                <result name = 'success'>editBug.jsp</result>
+                <result name = "error">cantWrite.jsp</result>
+            </action>
+
+            <action name = "editBugAction" class = "com.bugManager.dashboardAction" method = "editBug">
+                <result name = "success" type = "redirectAction">viewBugsAction</result>
                 <result name = "error">cantWrite.jsp</result>
             </action>
 

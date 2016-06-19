@@ -2,13 +2,10 @@ package com.bugManager;
 
 import java.sql.*;
 
-/**
- * Created by soorya on 18-Jun-16.
- */
 public class isEditableDao {
 
     int status;
-    String editBugTItle, editBugDesc;
+    String editBugTitle, editBugDesc;
     int canEdit(dashboardAction da){
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -25,7 +22,7 @@ public class isEditableDao {
             while(rs.next()){
                 if(rs.getString("updateLock").equals("0")) {
                     status = 1;
-                    editBugTItle = rs.getString("bugTitle");
+                    editBugTitle = rs.getString("bugTitle");
                     editBugDesc = rs.getString("bugDesc");
                 }
                 else
@@ -44,7 +41,7 @@ public class isEditableDao {
     }
 
     String returnEditBugTitle(){
-        return editBugTItle;
+        return editBugTitle;
     }
 
     String returnEditBugDesc(){

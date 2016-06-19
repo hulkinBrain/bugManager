@@ -20,8 +20,8 @@ public class editBugDao {
 
             sql = "UPDATE bugs SET bugTitle = ?, bugDesc = ? WHERE bugId = ?";
             ps = c.prepareStatement(sql);
-            ps.setString(1, da.getEditBugTitle());
-            ps.setString(2, da.getEditBugDesc());
+            ps.setString(1, da.getBugTitle());
+            ps.setString(2, da.getBugDesc());
             ps.setString(3, da.getChosenBugId());
 
             status = ps.executeUpdate();
