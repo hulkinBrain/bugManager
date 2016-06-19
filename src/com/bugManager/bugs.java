@@ -8,10 +8,20 @@ public class bugs {
     private String bugGeneratedOn;
     private String bugSolvedById;
     private String bugSolvedByName;
+    private String bugRaisedByName;
+
 
     private String bugSolvedOn;
     private String relatedProjectId;
     private String updateLock;
+
+    public String getBugRaisedByName() {
+        return bugRaisedByName;
+    }
+
+    public void setBugRaisedByName(String bugRaisedByName) {
+        this.bugRaisedByName = bugRaisedByName;
+    }
 
     public String getBugTitle() {
         return bugTitle;

@@ -147,6 +147,18 @@ textarea.materialize-textarea{
     margin: 0;
 }
 
+#deleteProjectForm{
+    margin: 0;
+}
+
+#deleteProjectForm a{
+    font-size: 16px;
+    color: #26a69a;
+    display: block;
+    line-height: 22px;
+    padding: 14px 16px;
+}
+
 @font-face {
     font-family: robotoLight;
     src: url('../fonts/Roboto-Light.ttf');

@@ -2,33 +2,28 @@ package com.bugManager;
 
 import java.sql.*;
 
+/**
+ * Created by soorya on 18-Jun-16.
+ */
+public class cancelEditBugDao {
 
-public class removeBugDao {
     int status;
-    int remove(dashboardAction da) {
+    int canceEdit(dashboardAction da){
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/bugmanager", "username", "qwer");
-            String sql, sql1;
-            PreparedStatement ps, ps1;
+            String sql;
+            PreparedStatement ps;
             ResultSet rs;
 
-            sql = "SELECT bugGeneratedById FROM bugs WHERE bugGeneratedById = ? AND bugId = ?";
+            //setting updateLock back to 0 so that others can edit the bug
+            sql = "UPDATE bugs SET updateLock = ? WHERE bugId = ?";
             ps = c.prepareStatement(sql);
-            ps.setString(1, da.fetchUserId());
+            ps.setString(1, "0");
             ps.setString(2, da.getChosenBugId());
+            status = ps.executeUpdate();
+            System.out.println("successfully edited");
 
-            rs = ps.executeQuery();
-
-            if(rs.next()) {
-                sql1 = "DELETE FROM bugs WHERE bugId = ?";
-                ps1 = c.prepareStatement(sql1);
-                ps1.setString(1, da.getChosenBugId());
-                status = ps1.executeUpdate();
-            }
-
-            else
-                status = 2;
         }
         catch(ClassNotFoundException e) {
             System.out.println("ClassNotFoundException found");

@@ -84,11 +84,11 @@
                             <s:a class = "dropdown-button" data-beloworigin="true" data-activates = "bugList%{#status.count}"><i class = "material-icons right">list</i></s:a>
                         </div>
                         <div class="collapsible-body white">
+                            <p>Raised By: <s:property value="bugRaisedByName"/> </p>
                             <p>Solved By: <s:property value="bugSolvedByName"/> </p>
 
                                 <p style = 'font-family: "robotoBold", sans-serif'>Bug Description:</p> <br>
                                 <pre><s:property value = "bugDesc"/></pre>
-
                         </div>
                     </li>
                     <s:div id='bugList%{#status.count}' class='dropdown-content bugListItems' data-constrainwidth = "false">

@@ -108,6 +108,11 @@
                                 <s:param name = "chosenViewMembers"><s:property value = "projectId"/></s:param>
                             </s:url>
                             <li><s:a href = "%{urlValue}" class = "waves-effect waves-dark">View Members</s:a></li>
+
+                            <s:url id = "urlValue2" action = "deleteProjectAction">
+                                <s:param name = "chosenViewMembers"><s:property value = "projectId"/></s:param>
+                            </s:url>
+                            <li><s:a href = "%{urlValue2}" class = "waves-effect waves-dark">Delete Project</s:a></li>
                         </s:div>
 
                 </s:iterator>

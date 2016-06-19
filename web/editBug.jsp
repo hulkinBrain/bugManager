@@ -103,7 +103,13 @@
 
                 <div class = "row formButtons">
                     <a class = 'btn waves-effect waves-light right submitButton' onclick = 'document.getElementById("editBugForm").submit();'>Update</a>
-                    <a class = 'btn waves-effect waves-dark right cancelButton purple accent-1' style = "margin-right: 2%;">Cancel</a>
+
+                    <s:url id = "urlValue" action = "cancelEditBugAction">
+                        <s:param name = "chosenViewMembers" value = "%{chosenViewMembers}"/>
+                        <s:param name = "chosenBugId" value = "%{chosenBugId}"/>
+                    </s:url>
+                    <s:a href = "%{urlValue}" class = 'btn waves-effect waves-dark right cancelButton purple accent-1'>Cancel</s:a>
+
                 </div>
             </s:form>
         </div>

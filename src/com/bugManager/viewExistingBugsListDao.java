@@ -13,8 +13,8 @@ public class viewExistingBugsListDao {
             Class.forName("com.mysql.jdbc.Driver");
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/bugmanager", "username", "qwer");
             String sql;
-            PreparedStatement ps;
-            ResultSet rs;
+            PreparedStatement ps, ps2;
+            ResultSet rs, rs2;
 
             // fields have been SELECTed individually for easier deletion or addition of fields in future
             sql = "SELECT bugId, bugTitle, bugDesc, bugGeneratedById, bugGeneratedOn, bugSolvedById, bugSolvedOn, relatedProjectid, updateLock "+
@@ -30,6 +30,12 @@ public class viewExistingBugsListDao {
                 bug.setBugDesc(rs.getString("bugDesc"));
                 bug.setBugGeneratedById(rs.getString("bugGeneratedById"));
                 bug.setBugGeneratedOn(rs.getString("bugGeneratedOn"));
+
+                ps2 = c.prepareStatement("SELECT firstName, lastName FROM users WHERE id = ?");
+                ps2.setString(1, rs.getString("bugGeneratedById"));
+                rs2 = ps2.executeQuery();
+                if(rs2.next())
+                    bug.setBugRaisedByName(rs2.getString("firstName") + " " + rs2.getString("lastName"));
 
                 if(rs.getString("bugSolvedById") == null)
                     bug.setBugSolvedById("");

@@ -223,6 +223,16 @@ public class dashboardAction implements ServletRequestAware{
             return "error";
     }
 
+    public String cancelEditBug(){
+        int status;
+        cancelEditBugDao cebd = new cancelEditBugDao();
+        status = cebd.canceEdit(this);
+        if(status == 1)
+            return "success";
+        else
+            return "error";
+    }
+
     public String removeBug(){
         int status;
         removeBugDao rbd = new removeBugDao();
@@ -231,6 +241,8 @@ public class dashboardAction implements ServletRequestAware{
             System.out.println("deleted bug");
             return "success";
         }
+        else if(status == 2)
+            return "noPermission";
         else {
             System.out.println("couldnt delete bug");
             return "error";
@@ -248,6 +260,21 @@ public class dashboardAction implements ServletRequestAware{
     }
     public String doSomething(){
         return "success";
+    }
+
+    public String deleteProject(){
+
+        int status;
+        deleteProjectDao dpd = new deleteProjectDao();
+        status = dpd.removeProject(this);
+        if(status == 1)
+            return "success";
+
+        else if(status == 2)
+            return "noPermission";
+
+        else
+            return "error";
     }
 
     String fetchUserId(){

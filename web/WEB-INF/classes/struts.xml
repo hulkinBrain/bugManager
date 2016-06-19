@@ -95,13 +95,25 @@
                 <result name = "error">cantWrite.jsp</result>
             </action>
 
+            <action name = "cancelEditBugAction" class = "com.bugManager.dashboardAction" method = "cancelEditBug">
+                <result name = "success" type = "redirect">viewBugsAction.action?chosenViewMembers=%{chosenViewMembers}</result>
+                <result name = "error">cantWrite.jsp</result>
+            </action>
+
             <action name = "removeBugAction" class = "com.bugManager.dashboardAction" method = "removeBug">
                 <result name = "success" type = "redirect">viewBugsAction.action?chosenViewMembers=%{chosenViewMembers}</result>
+                <result name = "noPermission">noPermissionDeleteBug.jsp</result>
                 <result name = "error">cantWrite.jsp</result>
             </action>
 
             <action name = "setBugStatusAction" class = "com.bugManager.dashboardAction" method = "setBugStatus">
                 <result name = "success" type = "redirect">viewBugsAction.action?chosenViewMembers=%{chosenViewMembers}</result>
+                <result name = "error">cantWrite.jsp</result>
+            </action>
+
+            <action name = "deleteProjectAction" class = "com.bugManager.dashboardAction" method = "deleteProject">
+                <result name = "success" type = "chain">viewProjectsAction</result>
+                <result name = "noPermission">noPermissionProjects.jsp</result>
                 <result name = "error">cantWrite.jsp</result>
             </action>
 
