@@ -22,7 +22,7 @@ public class addBugDao {
             sql= "INSERT INTO bugs (bugTitle, bugDesc, bugGeneratedById, bugGeneratedOn, relatedProjectId, updateLock) "+
                     "VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = c.prepareStatement(sql);
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            DateFormat dateFormat = new SimpleDateFormat("EEE, d MMM yyyy hh:mm aaa");
             Date date = new Date();
             String currentDate = dateFormat.format(date);
             ps.setString(1, da.getBugTitle());
