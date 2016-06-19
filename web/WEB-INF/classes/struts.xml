@@ -10,7 +10,7 @@
         <constant name="struts.devMode" value="true" />
         <constant name="struts.url.includeParams" value="none" />
 
-        <package name="com.bugManager" extends="struts-default, json-default">
+        <package name="com.bugManager" extends="struts-default">
 
             <!--Register Action -->
             <action name="register" class = "com.bugManager.registerAction" method = "execute">
@@ -80,22 +80,22 @@
             </action>
 
             <action name = "addBugAction" class = "com.bugManager.dashboardAction" method = "addBug">
-                <result name = "success" type = "redirect">viewBugsAction.action?chosenViewMembers=%{membersToBeAddedInProjectId}</result>
-                <result name = "error">cantWrite.jsp</result>
-            </action>
-
-            <action name = "editBug" class = "com.bugManager.dashboardAction" method = "isEditable">
                 <result name = "success" type = "redirect">
-                    <param name="location">editBug.jsp</param>
-                    <param name="chosenBugId">%{chosenBugId}</param>
+                    <param name="location">viewBugsAction.action</param>
+                    <param name="chosenViewMembers">%{chosenViewMembers}</param>
                 </result>
                 <result name = "error">cantWrite.jsp</result>
             </action>
 
-            <action name = "editBugAction" class = "com.bugManager.dashboardAction" method = "editBug">
-                <result name = "success" type = "redirect">viewBugsAction.action?chosenViewMembers=%{membersToBeAddedInProjectId}</result>
+            <action name = "checkIsEditable" class = "com.bugManager.dashboardAction" method = "isEditable">
+                <result name = "success" type = "redirect">
+                    <param name = "location">editBug.jsp</param>
+                    <param name = "chosenBugId">%{chosenBugId}</param>
+                    <param name="chosenViewMembers">%{chosenViewMembers}</param>
+                </result>
                 <result name = "error">cantWrite.jsp</result>
             </action>
+
 
         </package>
 

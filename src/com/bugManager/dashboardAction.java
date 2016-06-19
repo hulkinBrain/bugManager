@@ -30,8 +30,16 @@ public class dashboardAction implements ServletRequestAware{
     private String chosenViewMembers;   //to store the projectId of the project whose list option 'view members' has been chosen
     private String memberIdToBeDeleted;
     private String localProjectId;
+    private String editBugTitle;
+    private String editBugDesc;
 
+    public String getEditBugDesc() {
+        return editBugDesc;
+    }
 
+    public void setEditBugDesc(String editBugDesc) {
+        this.editBugDesc = editBugDesc;
+    }
 
     private String membersToBeAddedInProjectId; //to store the projectId of the project whose list option 'view members' has been chosen (for viewMembers.jsp)
     private String chosenBugId; //to store the id of the bug which has been chosen for editing
@@ -186,24 +194,38 @@ public class dashboardAction implements ServletRequestAware{
         return "success";
     }
 
+    public String doSomething(){
+        return "success";
+    }
+
     public String isEditable(){
         int status;
+        System.out.println("chosenViewmembers: " + chosenViewMembers);
         isEditableDao ied = new isEditableDao();
         status = ied.canEdit(this);
+        editBugTitle = ied.returnEditBugTitle();
+        editBugDesc = ied.returnEditBugDesc();
+        System.out.println("editBugTitle = " + editBugTitle);
+        System.out.println("editBugDesc = " + editBugDesc);
+        System.out.println("bug ID in dashboard : " + chosenBugId);
         if(status == 1)
             return "success";
         else
             return "error";
+
     }
     public String editBug(){
-        int status = 1;
+        int status;
+        System.out.println("chosenViewmembers: " + chosenViewMembers);
+        viewExistingBugsList();
         editBugDao ebd = new editBugDao();
-        //status = ebd.edit();
+        status = ebd.edit(this);
         if(status == 1)
             return "success";
         else
             return "error";
     }
+
     String fetchUserId(){
         for(Cookie c : servletRequest.getCookies()) {
             if (c.getName().equals("userIdCookie"))
@@ -215,6 +237,14 @@ public class dashboardAction implements ServletRequestAware{
 
 
     //getters and setters
+
+    public String getEditBugTitle() {
+        return editBugTitle;
+    }
+
+    public void setEditBugTitle(String editBugTitle) {
+        this.editBugTitle = editBugTitle;
+    }
 
     public String getChosenBugId() {
         return chosenBugId;

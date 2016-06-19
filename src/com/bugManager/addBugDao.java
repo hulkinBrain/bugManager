@@ -29,7 +29,7 @@ public class addBugDao {
             ps.setString(2, da.getBugDesc());
             ps.setString(3, da.fetchUserId());
             ps.setString(4, currentDate);
-            ps.setString(5, da.getMembersToBeAddedInProjectId());
+            ps.setString(5, da.getChosenViewMembers());
             ps.setString(6, "0");
 
             status = ps.executeUpdate();

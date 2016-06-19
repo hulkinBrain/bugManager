@@ -104,9 +104,10 @@
                     </li>
                     <s:div id='bugList%{#status.count}' class='dropdown-content bugListItems' data-constrainwidth = "false">
 
-                        <s:form action = "editBug" id = "editBugForm">
+                        <s:form id = "editBugForm" action = "checkIsEditable">
+                            <s:hidden name = "chosenViewMembers" value = "%{chosenViewMembers}"/>
                             <s:hidden name = "chosenBugId" value="%{bugId}"/>
-                            <li><a onclick = "document.getElementById('editBugForm').submit()">Edit</a></li>
+                            <li><a onclick = 'document.getElementById("editBugForm").submit()'>Edit</a></li>
                         </s:form>
 
                         <li><a href="#!">Mark Solved/Unsolved</a></li>
@@ -136,7 +137,7 @@
                             <label for="bugTitle">Enter Bug Title</label>
                         </div>
                     </div>
-                    <s:hidden name = "membersToBeAddedInProjectId" value = "%{chosenViewMembers}"/>
+                    <s:hidden name = "chosenViewMembers" value = "%{chosenViewMembers}"/>
                     <div class="row">
                         <div class="input-field col s12">
                             <s:textarea id="bugDesc" class="materialize-textarea" name = "bugDesc"/>

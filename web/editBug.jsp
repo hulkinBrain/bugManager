@@ -31,7 +31,7 @@
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
-        <link type="text/css" rel="stylesheet" href="css/viewBugs.css">
+        <link type="text/css" rel="stylesheet" href="css/editBug.css">
 
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -81,22 +81,35 @@
             </div>
         </nav>
 
-        <s:form id = "editBugForm">
-            <div class = "row">
-                <div class="input-field col s6">
-                    <s:textfield id="bugTitle" name = "bugTitle"/>
-                    <label for="bugTitle">Enter Bug Title</label>
+        <div class = "editFormContainer white">
+            <s:form id = "editBugForm">
+                <s:hidden name = "chosenViewMembers" value = "%{relatedProjectId}"/>
+                <s:hidden name = "chosenBugId" value = "%{chosenbugId}"/>
+                <div class = "row">
+                    <div class="input-field col s6">
+                        <s:textfield id="bugTitle" name = "bugTitle" value = "%{editBugTitle}" class = "bugTitle"/>
+                        <label for="bugTitle">Enter Bug Title</label>
+                        <span class = "errorMsg" id = "bugTitleError"></span>
+                    </div>
                 </div>
-            </div>
-            <s:hidden name = "chosenViewMembers" value = "%{relatedProjectId}"/>
-            <s:hidden name = "chosenBugId" value = "%{chosenbugId}"/>
-            <div class="row">
-                <div class="input-field col s12">
-                    <s:textarea id="bugDesc" class="materialize-textarea" name = "bugDesc"/>
-                    <label for="bugDesc">Enter Bug Details</label>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <s:property value="bugDesc"/>
+                        <s:property value="bugTitle"/>
+                        <s:textarea id="bugDesc" class="materialize-textarea bugDesc" name = "editBugDesc" value = "%{editBugDesc}"/>
+                        <label for="bugDesc">Enter Bug Details</label>
+                        <span class = "errorMsg" id = "bugDescError"></span>
+                    </div>
                 </div>
-            </div>
-        </s:form>
+                <s:hidden name="chosenViewMembers" value = "%{chosenViewMembers}"/>
+                <div class = "row formButtons">
+                    <a class = 'btn waves-effect waves-light right submitButton' onclick = 'document.getElementById("editBugForm").submit();'>Update</a>
+                    <a class = 'btn waves-effect waves-dark right cancelButton purple accent-1'>Cancel</a>
+                </div>
+            </s:form>
+        </div>
+
 
     </div>
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
