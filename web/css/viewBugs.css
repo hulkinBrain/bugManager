@@ -109,6 +109,10 @@ body{
     font-family: "robotoBold", sans-serif;
 }
 
+#deleteUserForm{
+    margin: 0;
+}
+
 @font-face {
     font-family: robotoLight;
     src: url('../fonts/Roboto-Light.ttf');

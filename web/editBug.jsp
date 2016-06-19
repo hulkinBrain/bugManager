@@ -83,7 +83,6 @@
 
         <div class = "editFormContainer white">
             <s:form id = "editBugForm" action = "editBugAction">
-                <s:property value="chosenViewMembers"/>
                 <s:hidden name = "chosenViewMembers" value = "%{chosenViewMembers}"/>
                 <s:hidden name = "chosenBugId" value = "%{chosenBugId}"/>
                 <div class = "row">

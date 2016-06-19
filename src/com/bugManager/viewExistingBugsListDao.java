@@ -20,7 +20,6 @@ public class viewExistingBugsListDao {
             sql = "SELECT bugId, bugTitle, bugDesc, bugGeneratedById, bugGeneratedOn, bugSolvedById, bugSolvedOn, relatedProjectid, updateLock "+
                     "FROM bugs WHERE relatedprojectId = ?";
             ps = c.prepareStatement(sql);
-            System.out.println("getMemberstoBeAddedInProjectId = " + da.getChosenViewMembers());
             ps.setString(1, da.getChosenViewMembers());
 
             rs = ps.executeQuery();
@@ -28,7 +27,7 @@ public class viewExistingBugsListDao {
                 bugs bug = new bugs();
                 bug.setBugId(rs.getString("bugId"));
                 bug.setBugTitle(rs.getString("bugTitle"));
-                bug.setBugDesc(rs.getString("bugDesc"));
+                bug.setBugDesc(rs.getString("bugDesc").replaceAll("\n","<br/>"));
                 bug.setBugGeneratedById(rs.getString("bugGeneratedById"));
                 bug.setBugGeneratedOn(rs.getString("bugGeneratedOn"));
 
@@ -43,7 +42,7 @@ public class viewExistingBugsListDao {
                     rs1 = ps1.executeQuery();
 
                     if(rs1.next())
-                        bug.setBugSolvedByName(rs.getString("firstName") + " " +rs.getString("lastName"));
+                        bug.setBugSolvedByName(rs1.getString("firstName") + " " +rs1.getString("lastName"));
                 }
 
                 if(rs.getString("bugSolvedOn") == null)
@@ -54,17 +53,15 @@ public class viewExistingBugsListDao {
                 bug.setRelatedProjectId(rs.getString("relatedProjectId"));
                 bug.setUpdateLock(rs.getString("updateLock"));
 
-                System.out.println("adding a bug into the list");
                 existingBugsList.add(bug);
             }
-            System.out.println("size of bugList = " + existingBugsList.size());
         }
         catch(ClassNotFoundException e) {
-            System.out.println("ClassNotFoundExcetion found");
+            System.out.println("ClassNotFoundException found");
             e.printStackTrace();
         }
         catch(SQLException e) {
-            System.out.println("SQLExcetion found");
+            System.out.println("SQLException found");
             e.printStackTrace();
         }
         return existingBugsList;

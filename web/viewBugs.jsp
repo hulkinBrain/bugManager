@@ -109,9 +109,37 @@
                         </s:url>
                         <li><s:a href = '%{urlValue}'>Edit</s:a></li>
 
-                        <li><a href="#!">Mark Solved/Unsolved</a></li>
-                        <li><a href="#!">Delete</a></li>
+                        <s:url id = "urlValue2" action = "setBugStatusAction">
+                            <s:param name = "chosenViewMembers"><s:property value = "%{chosenViewMembers}"/></s:param>
+                            <s:param name = "chosenBugId"><s:property value = "%{bugId}"/></s:param>
+                        </s:url>
+
+                        <li><s:a href = "%{urlValue2}">Mark Solved/Unsolved</s:a></li>
+
+
+                        <s:url id = "urlValue1" action = "removeBugAction">
+                            <s:param name = "chosenViewMembers"><s:property value = "%{chosenViewMembers}"/></s:param>
+                            <s:param name = "chosenBugId"><s:property value = "%{bugId}"/></s:param>
+                        </s:url>
+
+                        <li><s:a class = "modal-trigger" href = "#confirm%{#status.count}">Delete</s:a></li>
+
                     </s:div>
+
+                    <!-- userDelete confirmation start-->
+
+                    <s:div id="confirm%{#status.count}" class="modal">
+                        <div class="modal-content">
+                            <p class = "center-align" style = "font-size: 3vmin">Do you really want to delete this user?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <s:a href = "%{urlValue1}" class="modal-action modal-close waves-effect waves-green btn-flat">Yes</s:a>
+                            <a class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+                        </div>
+                    </s:div>
+
+                    <!--userDelete confirmation end-->
+
                 </s:iterator>
 
             </ul>

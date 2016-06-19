@@ -215,13 +215,39 @@ public class dashboardAction implements ServletRequestAware{
     public String editBug(){
         this.viewExistingBugsList();
         int status;
-        System.out.println("chosenViewmembers: " + chosenViewMembers);
         editBugDao ebd = new editBugDao();
         status = ebd.edit(this);
         if(status == 1)
             return "success";
         else
             return "error";
+    }
+
+    public String removeBug(){
+        int status;
+        removeBugDao rbd = new removeBugDao();
+        status = rbd.remove(this);
+        if(status == 1) {
+            System.out.println("deleted bug");
+            return "success";
+        }
+        else {
+            System.out.println("couldnt delete bug");
+            return "error";
+        }
+    }
+
+    public String setBugStatus(){
+        int status;
+        setBugStatusDao sbsd = new setBugStatusDao();
+        status = sbsd.setStatus(this);
+        if(status == 1)
+            return "success";
+        else
+            return "error";
+    }
+    public String doSomething(){
+        return "success";
     }
 
     String fetchUserId(){

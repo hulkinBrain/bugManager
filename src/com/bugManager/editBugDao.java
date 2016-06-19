@@ -16,8 +16,6 @@ public class editBugDao {
             PreparedStatement ps;
             ResultSet rs;
 
-            System.out.println("bugID = " + da.getChosenBugId() + " " + da.getEditBugTitle() + " " + da.getEditBugDesc());
-
             sql = "UPDATE bugs SET bugTitle = ?, bugDesc = ? WHERE bugId = ?";
             ps = c.prepareStatement(sql);
             ps.setString(1, da.getBugTitle());
@@ -26,8 +24,19 @@ public class editBugDao {
 
             status = ps.executeUpdate();
 
-            if(status == 1)
+            if(status == 1) {
+
+                String sql1;
+                PreparedStatement ps1;
+
+                //setting updateLock back to 0 so that others can edit the bug
+                sql1 = "UPDATE bugs SET updateLock = ? WHERE bugId = ?";
+                ps1 = c.prepareStatement(sql1);
+                ps1.setString(1, "0");
+                ps1.setString(2, da.getChosenBugId());
+                ps1.executeUpdate();
                 System.out.println("successfully edited");
+            }
             else
                 System.out.println("couldnt update");
         }

@@ -34,12 +34,6 @@
                 <result name = "success">index.jsp</result>
             </action>
 
-            <!-- TO BE ADDED -->
-
-            <!--action name="searchAction" class = "com.bugManager.dashboardAction">
-                <result type="json"/>
-            </action-->
-
             <action name = "addProject" class = "com.bugManager.dashboardAction" method = "addProject">
                 <result name = "success" type = "chain">viewProjectsAction</result>
                 <result name="error">dashboard.jsp</result>
@@ -89,12 +83,11 @@
 
             <action name = "checkIsEditable" class = "com.bugManager.dashboardAction" method = "isEditable">
                 <result name = "success" type = "chain">editBugShow</result>
-                <result name = "error">cantWrite.jsp</result>
+                <result name = "error">updateLock.jsp</result>
             </action>
 
-            <action name = "editBugShow" class = "com.bugManager.dashboardAction" method = "isEditable">
+            <action name = "editBugShow" class = "com.bugManager.dashboardAction" method = "doSomething">
                 <result name = 'success'>editBug.jsp</result>
-                <result name = "error">cantWrite.jsp</result>
             </action>
 
             <action name = "editBugAction" class = "com.bugManager.dashboardAction" method = "editBug">
@@ -102,6 +95,15 @@
                 <result name = "error">cantWrite.jsp</result>
             </action>
 
+            <action name = "removeBugAction" class = "com.bugManager.dashboardAction" method = "removeBug">
+                <result name = "success" type = "redirect">viewBugsAction.action?chosenViewMembers=%{chosenViewMembers}</result>
+                <result name = "error">cantWrite.jsp</result>
+            </action>
+
+            <action name = "setBugStatusAction" class = "com.bugManager.dashboardAction" method = "setBugStatus">
+                <result name = "success" type = "redirect">viewBugsAction.action?chosenViewMembers=%{chosenViewMembers}</result>
+                <result name = "error">cantWrite.jsp</result>
+            </action>
 
         </package>
 
