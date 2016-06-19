@@ -118,6 +118,10 @@ body{
 
 }
 
+.modal.confirmModal{
+    margin-top: 10%;
+}
+
 .bugListItems{
     font-family: "robotoBold", sans-serif;
 }

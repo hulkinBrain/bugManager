@@ -51,20 +51,6 @@
                 <a class = "white-text waves-effect waves-light" onclick="document.getElementById('viewForm').submit()">View Projects</a>
             </s:form>
         </li>
-        <li class = "normalListItem" id = "projectMembers"><a class = "white-text waves-effect waves-light">Project Members</a></li>
-        <li class="no-padding normalListItem">
-            <ul class="collapsible collapsible-accordion" >
-                <li class = "viewBugsTab">
-                    <a class="collapsible-header white-text waves-effect waves-light">View Bugs</a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li><a href="#!" class = "waves-effect waves-dark">Unsolved Bugs</a></li>
-                            <li><a href="#!" class = "waves-effect waves-dark">Solved Bugs</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </li>
         <li>
             <s:form action = "logout" class = "center-align" id = "logoutButtonForm">
                 <button class = "btn white waves-effect waves-dark black-text" value = "submit">Logout</button>
@@ -129,9 +115,9 @@
 
                     </s:div>
 
-                    <!-- userDelete confirmation start-->
+                    <!-- userDelete confirmation modal start-->
 
-                    <s:div id="confirm%{#status.count}" class="modal">
+                    <s:div id="confirm%{#status.count}" class="modal confirmModal">
                         <div class="modal-content">
                             <p class = "center-align" style = "font-size: 3vmin">Do you really want to delete this user?</p>
                         </div>
@@ -141,7 +127,7 @@
                         </div>
                     </s:div>
 
-                    <!--userDelete confirmation end-->
+                    <!--userDelete confirmation modal end-->
 
                 </s:iterator>
 

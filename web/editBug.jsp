@@ -103,7 +103,7 @@
 
                 <div class = "row formButtons">
                     <a class = 'btn waves-effect waves-light right submitButton' onclick = 'document.getElementById("editBugForm").submit();'>Update</a>
-                    <a class = 'btn waves-effect waves-dark right cancelButton purple accent-1'>Cancel</a>
+                    <a class = 'btn waves-effect waves-dark right cancelButton purple accent-1' style = "margin-right: 2%;">Cancel</a>
                 </div>
             </s:form>
         </div>

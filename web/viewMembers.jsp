@@ -58,19 +58,6 @@
                 <a class = "white-text waves-effect waves-light" onclick="document.getElementById('viewMembersForm').submit()">Project Members</a>
             </s:form>
         </li>
-        <li class="no-padding normalListItem">
-            <ul class="collapsible collapsible-accordion" >
-                <li class = "viewBugsTab">
-                    <a class="collapsible-header white-text waves-effect waves-light">View Bugs</a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li><a href="#!" class = "waves-effect waves-dark">Unsolved Bugs</a></li>
-                            <li><a href="#!" class = "waves-effect waves-dark">Solved Bugs</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </li>
         <li>
             <s:form action = "logout" class = "center-align" id = "logoutButtonForm">
                 <button class = "btn white waves-effect waves-dark black-text" value = "submit">Logout</button>

@@ -51,20 +51,6 @@
                     <a class = "white-text waves-effect waves-light" onclick="document.getElementById('viewForm').submit()">View Projects</a>
                 </s:form>
             </li>
-            <li class = "normalListItem" id = "projectMembers"><a class = "white-text waves-effect waves-light">Project Members</a></li>
-            <li class="no-padding normalListItem">
-                <ul class="collapsible collapsible-accordion" >
-                    <li class = "viewBugsTab">
-                        <a class="collapsible-header white-text waves-effect waves-light">View Bugs</a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="#!" class = "waves-effect waves-dark">Unsolved Bugs</a></li>
-                                <li><a href="#!" class = "waves-effect waves-dark">Solved Bugs</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </li>
             <li>
                 <s:form action = "logout" class = "center-align" id = "logoutButtonForm">
                     <button class = "btn white waves-effect waves-dark black-text" value = "submit">Logout</button>
@@ -88,8 +74,6 @@
                 </a>
                 <ul>
                     <li><a class="btn-floating red accent-3 tooltipped modal-trigger" href = "#addProjectModal" data-position="left" data-delay="50" data-tooltip="Add Project"><i class="material-icons">note_add</i></a></li>
-                    <li><a class="btn-floating indigo accent-3 tooltipped modal-trigger" href="#addBugModal" data-position="left" data-delay="50" data-tooltip="Add Bug" id = "addBug"><i class="material-icons">bug_report</i></a></li>
-                    <li><a class="btn-floating blue tooltipped" data-position="left" data-delay="50" data-tooltip="Add Person"><i class="material-icons">contacts</i></a></li>
                 </ul>
             </div>
             <!-- floating button end -->
