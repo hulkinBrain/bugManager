@@ -112,7 +112,21 @@
                             <s:url id = "urlValue2" action = "deleteProjectAction">
                                 <s:param name = "chosenViewMembers"><s:property value = "projectId"/></s:param>
                             </s:url>
-                            <li><s:a href = "%{urlValue2}" class = "waves-effect waves-dark">Delete Project</s:a></li>
+                            <li><s:a class = "modal-trigger waves-effect waves-dark">Delete Project</s:a></li>
+
+                            <!-- userDelete confirmation modal start-->
+
+                            <s:div id="confirm%{#status.count}" class="modal confirmModal">
+                                <div class="modal-content">
+                                    <p class = "center-align" style = "font-size: 3vmin">Do you really want to delete this bug?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <s:a href = "%{urlValue2}" class="modal-action modal-close waves-effect waves-green btn-flat">Yes</s:a>
+                                    <a class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+                                </div>
+                            </s:div>
+
+                            <!--userDelete confirmation modal end-->
                         </s:div>
 
                 </s:iterator>

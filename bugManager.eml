@@ -13,7 +13,6 @@
 		<level name="jstl" value="project"/>
 		<level name="struts2-dojo-plugin-2.3.28.1" value="project"/>
 		<level name="freemarker-2.3.8" value="project"/>
-		<level name="jackson-all-1.9.9" value="project"/>
 		<level name="jsp-api-2.1" value="project"/>
 	</levels>
 </component>

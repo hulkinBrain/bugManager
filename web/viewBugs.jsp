@@ -119,7 +119,7 @@
 
                     <s:div id="confirm%{#status.count}" class="modal confirmModal">
                         <div class="modal-content">
-                            <p class = "center-align" style = "font-size: 3vmin">Do you really want to delete this user?</p>
+                            <p class = "center-align" style = "font-size: 3vmin">Do you really want to delete this bug?</p>
                         </div>
                         <div class="modal-footer">
                             <s:a href = "%{urlValue1}" class="modal-action modal-close waves-effect waves-green btn-flat">Yes</s:a>

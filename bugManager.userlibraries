@@ -22,9 +22,6 @@
   <library name="freemarker-2.3.8">
     <archive path="G:/javaProjects/bugManager/lib/freemarker-2.3.8.jar" />
   </library>
-  <library name="jackson-all-1.9.9">
-    <archive path="G:/javaProjects/bugManager/lib/jackson-all-1.9.9.jar" />
-  </library>
   <library name="json-simple-1.1.1">
     <archive path="G:/javaProjects/bugManager/lib/json-simple-1.1.1.jar" />
   </library>
